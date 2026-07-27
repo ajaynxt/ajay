@@ -15,16 +15,33 @@
     });
   };
 
+  const attachVideo = (video) => {
+    if (!video?.dataset.src || video.dataset.loaded === "true") return;
+    const media = video.closest(".media");
+    video.dataset.loaded = "true";
+    video.addEventListener("error", () => {
+      if (media) media.dataset.missing = "true";
+      console.warn(`[Rajmahal] Missing asset: ${video.dataset.src}`);
+    }, { once: true });
+    video.src = video.dataset.src;
+    video.preload = "auto";
+    video.load();
+  };
+
   const loadVideos = () => {
-    $$("video[data-src]").forEach((video) => {
-      const media = video.closest(".media");
-      video.addEventListener("error", () => {
-        media.dataset.missing = "true";
-        console.warn(`[Rajmahal] Missing asset: ${video.dataset.src}`);
+    if (touchDevice) return;
+    const scrubSections = $$(".scrub-chapter");
+    attachVideo($("video[data-src]", scrubSections[0]));
+
+    const observer = new IntersectionObserver((entries, preloadObserver) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        attachVideo($("video[data-src]", entry.target));
+        preloadObserver.unobserve(entry.target);
       });
-      video.src = video.dataset.src;
-      video.load();
-    });
+    }, { rootMargin: "120% 0px", threshold: 0 });
+
+    scrubSections.slice(1).forEach((section) => observer.observe(section));
   };
 
   const showStaticExperience = () => {
@@ -71,7 +88,8 @@
       .to(".preloader-letter", { y: 0, opacity: 1, stagger: 0.07, ease: "power2.out" })
       .to(".preloader-line", { scaleX: 1, duration: 0.7, ease: "expo.out" }, "<.15")
       .to(".preloader", { yPercent: -100, duration: 0.9, ease: "expo.inOut", delay: 0.35 })
-      .from(".hero .word", { yPercent: 110, stagger: 0.08, duration: 1.1, ease: "expo.out" }, "-=.35");
+      .from(".hero .word", { yPercent: 110, stagger: 0.08, duration: 1.1, ease: "expo.out" }, "-=.35")
+      .add(() => $(".nav")?.classList.add("visible"), "-=.8");
 
     const counter = { value: 0 };
     gsap.to(counter, {
@@ -181,6 +199,7 @@
       entries.forEach((entry) => {
         const video = $("video", entry.target);
         if (!video) return;
+        if (entry.intersectionRatio >= 0.1) attachVideo(video);
         if (entry.intersectionRatio >= 0.5) video.play().catch(() => {});
         else video.pause();
       });
@@ -226,8 +245,6 @@
   loadVideos();
   initPlayback();
   initNavigation();
-  addEventListener("load", () => {
-    initMotion();
-    initCursor();
-  }, { once: true });
+  initMotion();
+  initCursor();
 })();

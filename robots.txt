@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://rajmahal.ajaynxt.com/sitemap.xml
