@@ -126,6 +126,7 @@ export default function Home() {
         { clipPath: "polygon(0 0,100% 0,100% 100%,0 100%)", ease: "expo.inOut", scrollTrigger: { trigger: "#pool", start: "top 75%", end: "top top", scrub: 1 }});
       gsap.to(".float-1", { y: -100, scrollTrigger: { trigger: "#pool", scrub: 1 }});
       gsap.to(".float-2", { y: -180, scrollTrigger: { trigger: "#pool", scrub: 1 }});
+      gsap.to(".portfolio-rail", { xPercent: -38, ease: "none", scrollTrigger: { trigger: "#portfolio", start: "top bottom", end: "bottom top", scrub: 1 }});
 
       let last = 0;
       addEventListener("scroll", () => {
@@ -213,6 +214,31 @@ export default function Home() {
           </div><div className="chapter-progress"><i/></div>
         </section>
       </main>
+
+      <section id="portfolio" className="portfolio">
+        <div className="portfolio-head">
+          <p className="eyebrow">AJAY NXT · PERSONAL CONCEPT SHOWCASE</p>
+          <h2>Ideas in motion.<br/><em>Built to be remembered.</em></h2>
+          <p>A self-initiated luxury hospitality demo by Ajay Saini—created to showcase cinematic web direction, development, motion and visual storytelling.</p>
+        </div>
+        <div className="portfolio-viewport">
+          <div className="portfolio-rail">
+            <a className="work-card work-card-gold" href="https://diamondrestaurants.com/" target="_blank" rel="noreferrer">
+              <span>01 · WEBSITE + SYSTEM</span><div className="work-orbit"/><h3>Diamond<br/>Restaurants</h3><p>Premium restaurant experience, responsive build and an easy content system.</p><b>View live project ↗</b>
+            </a>
+            <article className="work-card work-card-teal">
+              <span>02 · PRODUCT CONCEPT</span><div className="route-line"/><h3>Move<br/>To Go</h3><p>Customer app, rider experience, live tracking and an operations dashboard.</p><b>Mobility architecture ↗</b>
+            </article>
+            <article className="work-card work-card-rose">
+              <span>03 · FILM + DIGITAL</span><div className="film-frame">▶</div><h3>Wedding<br/>Stories</h3><p>Cinematic pacing, colour, music-led storytelling and digital presentation.</p><b>Selected collaborations ↗</b>
+            </article>
+            <a className="work-card work-card-ivory" href="https://ajaynxt.com" target="_blank" rel="noreferrer">
+              <span>04 · COMPLETE PORTFOLIO</span><div className="an-mark">AN</div><h3>Create<br/>What’s Next.</h3><p>Web design, development, app UI, video editing and AI creative systems.</p><b>Visit ajaynxt.com ↗</b>
+            </a>
+          </div>
+        </div>
+        <div className="capability-marquee"><div><span>WEB DESIGN</span><i>✦</i><span>DEVELOPMENT</span><i>✦</i><span>APP UI</span><i>✦</i><span>VIDEO EDITING</span><i>✦</i><span>AI CREATIVE</span><i>✦</i><span>WEB DESIGN</span><i>✦</i><span>DEVELOPMENT</span><i>✦</i><span>APP UI</span></div></div>
+      </section>
 
       <section className="creator">
         <div className="creator-index">AJAY<br/>NXT</div>
