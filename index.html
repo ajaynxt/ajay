@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#0a0e1a" />
+    <meta
+      name="description"
+      content="The Rajmahal Palace — a cinematic luxury hospitality concept by AJAY NXT."
+    />
+    <title>The Rajmahal Palace — Where Kings Once Dreamed</title>
+    <link rel="icon" href="./public/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400&family=Manrope:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+    <style>
+      .preloader.is-hidden { display: none; }
+      .media video { display: block; }
+      .media[data-missing="true"] .fallback-shimmer { opacity: 1; }
+      @media (max-width: 768px) {
+        .suite { height: auto; min-height: 100svh; }
+        .suite-track {
+          position: relative;
+          left: 7vw;
+          bottom: auto;
+          width: max-content;
+          padding: 42vh 0 10vh;
+          overflow-x: auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="preloader">
+      <div class="preloader-name" aria-label="Rajmahal">
+        <span class="preloader-letter">R</span><span class="preloader-letter">A</span><span class="preloader-letter">J</span><span class="preloader-letter">M</span><span class="preloader-letter">A</span><span class="preloader-letter">H</span><span class="preloader-letter">A</span><span class="preloader-letter">L</span>
+      </div>
+      <i class="preloader-line"></i>
+      <span class="preloader-count">000</span>
+    </div>
+
+    <div class="grain" aria-hidden="true"></div>
+    <div class="cursor" aria-hidden="true"><span>VIEW</span></div>
+
+    <nav class="nav" aria-label="Primary navigation">
+      <a href="#hero" class="brand" aria-label="AJAY NXT home">AN</a>
+      <div>
+        <a href="#durbar">The Palace</a>
+        <a href="#suite">Suites</a>
+        <a href="#pool">Experiences</a>
+        <a href="#portfolio">AJAY NXT</a>
+      </div>
+    </nav>
+
+    <div class="edge-number" aria-hidden="true">01 <i></i> 06</div>
+
+    <main>
+      <section id="hero" class="chapter hero scrub-chapter">
+        <div class="media">
+          <video data-src="./public/assets/video/01-hero-aerial.mp4" muted playsinline preload="auto"></video>
+          <div class="fallback-shimmer" aria-hidden="true"></div>
+        </div>
+        <div class="vignette"></div>
+        <div class="hero-title">
+          <p class="eyebrow">THE RAJMAHAL PALACE · UDAIPUR</p>
+          <h1 data-split>Where Kings Once Dreamed</h1>
+        </div>
+        <h2 class="hero-second"><em>Now, You Will.</em></h2>
+        <div class="scroll-cue"><i></i>Scroll to descend</div>
+        <div class="chapter-progress"><i></i></div>
+      </section>
+
+      <section id="arrival" class="chapter arrival scrub-chapter">
+        <div class="media">
+          <video data-src="./public/assets/video/02-arrival-gate.mp4" muted playsinline preload="metadata"></video>
+          <div class="fallback-shimmer" aria-hidden="true"></div>
+        </div>
+        <div class="vignette"></div>
+        <p class="eyebrow chapter-label">01 — THE ARRIVAL</p>
+        <h2 class="arrival-copy">
+          <span class="line-a">Through gates carved</span>
+          <span class="line-b">by a hundred hands</span>
+        </h2>
+        <div class="jali-wipe"></div>
+        <div class="chapter-progress"><i></i></div>
+      </section>
+
+      <section id="durbar" class="chapter durbar autoplay">
+        <div class="durbar-video">
+          <div class="media">
+            <video data-src="./public/assets/video/03-durbar-lobby.mp4" muted playsinline loop preload="metadata"></video>
+            <div class="fallback-shimmer" aria-hidden="true"></div>
+          </div>
+        </div>
+        <div class="ivory-panel">
+          <p class="eyebrow dark">02 — THE DURBAR HALL</p>
+          <h2 class="reveal" data-split>A welcome written in marble and light.</h2>
+          <p>Beyond the scalloped arches, history lingers in hand-painted ceilings, mirrored stone and the quiet ceremony of arrival.</p>
+          <div class="facts">
+            <span><b class="count" data-count="1743">1743</b>Year Founded</span>
+            <span><b class="count" data-count="92">92</b>Royal Suites</span>
+            <span><b class="count" data-count="14">14</b>Garden Acres</span>
+          </div>
+        </div>
+      </section>
+
+      <section id="suite" class="chapter suite autoplay">
+        <div class="media">
+          <video data-src="./public/assets/video/04-royal-suite.mp4" muted playsinline loop preload="metadata"></video>
+          <div class="fallback-shimmer" aria-hidden="true"></div>
+        </div>
+        <div class="vignette"></div>
+        <div class="suite-heading">
+          <p class="eyebrow">03 — PRIVATE WORLDS</p>
+          <h2 class="reveal" data-split>The Maharaja Suites</h2>
+        </div>
+        <div class="suite-track">
+          <article class="suite-card"><span>01</span><h3>The Maharaja Suite</h3><p>A private kingdom above the lake.</p><small>From ₹80,000 / night</small></article>
+          <article class="suite-card"><span>02</span><h3>The Moon Palace</h3><p>Silver light, carved stone, perfect silence.</p><small>From ₹80,000 / night</small></article>
+          <article class="suite-card"><span>03</span><h3>The Mewar Residence</h3><p>A garden courtyard held entirely yours.</p><small>From ₹80,000 / night</small></article>
+        </div>
+      </section>
+
+      <section id="pool" class="chapter pool autoplay">
+        <div class="pool-window">
+          <div class="media">
+            <video data-src="./public/assets/video/05-pool-gardens.mp4" muted playsinline loop preload="metadata"></video>
+            <div class="fallback-shimmer" aria-hidden="true"></div>
+          </div>
+          <div class="vignette"></div>
+        </div>
+        <p class="eyebrow pool-label">04 — POOL & GARDENS</p>
+        <span class="floating float-1">Stillness</span>
+        <span class="floating float-2">Marigold</span>
+        <span class="floating float-3">Dawn</span>
+      </section>
+
+      <section id="night" class="chapter night scrub-chapter">
+        <div class="media">
+          <video data-src="./public/assets/video/06-night-finale.mp4" muted playsinline preload="metadata"></video>
+          <div class="fallback-shimmer" aria-hidden="true"></div>
+        </div>
+        <div class="vignette"></div>
+        <div class="night-content">
+          <p class="eyebrow">05 — AFTER DARK</p>
+          <h2 class="reveal" data-split>Some places you visit. This one, you remember.</h2>
+          <a id="reserve" class="reserve magnetic" href="https://ajaynxt.com" target="_blank" rel="noreferrer">Reserve Your Stay <span>↗</span></a>
+        </div>
+        <div class="chapter-progress"><i></i></div>
+      </section>
+    </main>
+
+    <section id="portfolio" class="portfolio">
+      <div class="portfolio-head">
+        <p class="eyebrow">AJAY NXT · PERSONAL CONCEPT SHOWCASE</p>
+        <h2>Ideas in motion.<br /><em>Built to be remembered.</em></h2>
+        <p>A self-initiated luxury hospitality demo by Ajay Saini—created to showcase cinematic web direction, development, motion and visual storytelling.</p>
+      </div>
+      <div class="portfolio-viewport">
+        <div class="portfolio-rail">
+          <a class="work-card work-card-gold" href="https://diamondrestaurants.com/" target="_blank" rel="noreferrer">
+            <span>01 · WEBSITE + SYSTEM</span><div class="work-orbit"></div><h3>Diamond<br />Restaurants</h3><p>Premium restaurant experience, responsive build and an easy content system.</p><b>View live project ↗</b>
+          </a>
+          <article class="work-card work-card-teal">
+            <span>02 · PRODUCT CONCEPT</span><div class="route-line"></div><h3>Move<br />To Go</h3><p>Customer app, rider experience, live tracking and an operations dashboard.</p><b>Mobility architecture</b>
+          </article>
+          <article class="work-card work-card-rose">
+            <span>03 · FILM + DIGITAL</span><div class="film-frame">▶</div><h3>Wedding<br />Stories</h3><p>Cinematic pacing, colour, music-led storytelling and digital presentation.</p><b>Selected collaborations</b>
+          </article>
+          <a class="work-card work-card-ivory" href="https://ajaynxt.com" target="_blank" rel="noreferrer">
+            <span>04 · COMPLETE PORTFOLIO</span><div class="an-mark">AN</div><h3>Create<br />What’s Next.</h3><p>Web design, development, app UI, video editing and creative systems.</p><b>Visit ajaynxt.com ↗</b>
+          </a>
+        </div>
+      </div>
+      <div class="capability-marquee"><div><span>WEB DESIGN</span><i>✦</i><span>DEVELOPMENT</span><i>✦</i><span>APP UI</span><i>✦</i><span>VIDEO EDITING</span><i>✦</i><span>CREATIVE DIRECTION</span><i>✦</i><span>WEB DESIGN</span><i>✦</i><span>DEVELOPMENT</span><i>✦</i><span>APP UI</span></div></div>
+    </section>
+
+    <section class="creator">
+      <div class="creator-index">AJAY<br />NXT</div>
+      <div class="creator-copy">
+        <p class="eyebrow">CREATOR OF THIS EXPERIENCE</p>
+        <h2>Ajay Saini</h2>
+        <p class="creator-manifesto">I don’t decorate screens. I turn ambitious ideas into digital experiences that are impossible to ignore.</p>
+        <p>I’m Ajay Saini—the creator behind AJAY NXT. From premium websites and app experiences to cinematic edits and polished visuals, I combine design, development and storytelling to make good businesses look unforgettable.</p>
+        <div class="creator-tags"><span>Web Design</span><span>Development</span><span>App UI</span><span>Video Editing</span><span>Creative Direction</span></div>
+      </div>
+      <div class="creator-contact">
+        <p>Available for projects across India and worldwide.</p>
+        <p>Currently in Shimla, Himachal Pradesh<br />From Narsara · Ramgarh Shekhawati · Sikar, Rajasthan 331024</p>
+        <a href="https://ajaynxt.com" target="_blank" rel="noreferrer">ajaynxt.com ↗</a>
+        <a href="https://www.instagram.com/ajay_nxt_/" target="_blank" rel="noreferrer">@ajay_nxt_ ↗</a>
+        <a href="https://wa.me/919929562585" target="_blank" rel="noreferrer">WhatsApp: +91 99295 62585 ↗</a>
+        <a href="mailto:ajayx3neha@gmail.com">ajayx3neha@gmail.com ↗</a>
+      </div>
+    </section>
+
+    <footer>
+      <div class="footer-top">
+        <div><p class="eyebrow dark">THE RAJMAHAL PALACE</p><h2>Where imagination becomes experience.</h2></div>
+        <div class="footer-links"><a href="#durbar">Palace</a><a href="#suite">Suites</a><a href="#pool">Experiences</a><a href="#portfolio">AJAY NXT</a></div>
+      </div>
+      <div class="jali-border"></div>
+      <div class="footer-bottom"><span>A fictional luxury hospitality concept</span><span>Designed & built by Ajay Saini · AJAY NXT</span></div>
+    </footer>
+
+    <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/lenis@1.3.11/dist/lenis.min.js"></script>
+    <script defer src="./main.js"></script>
+  </body>
+</html>
