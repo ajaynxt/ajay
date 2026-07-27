@@ -136,14 +136,7 @@
     scrubVideo("#arrival", 320);
     scrubVideo("#night", 360);
 
-    if (touchDevice) {
-      $$(".scrub-chapter video").forEach((video) => {
-        video.addEventListener("loadedmetadata", () => {
-          video.currentTime = Math.min(0.1, video.duration || 0);
-          video.pause();
-        }, { once: true });
-      });
-    } else {
+    if (!touchDevice) {
       gsap.to(".suite-track", {
         xPercent: -66.66,
         ease: "none",
@@ -205,7 +198,11 @@
       });
     }, { threshold: [0.1, 0.5, 0.9] });
 
-    $$(".autoplay").forEach((section) => observer.observe(section));
+    const playbackSections = touchDevice && !reducedMotion
+      ? $$(".autoplay, .scrub-chapter")
+      : $$(".autoplay");
+
+    playbackSections.forEach((section) => observer.observe(section));
   };
 
   const initNavigation = () => {
