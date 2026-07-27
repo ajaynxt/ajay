@@ -24,7 +24,7 @@ function VideoBackdrop({ src, className = "", loop = false }: { src: string; cla
   const [missing, setMissing] = useState(false);
   return (
     <div className={`media ${missing ? "is-missing" : ""} ${className}`}>
-      {!missing && <video data-src={src} muted playsInline autoPlay loop preload={src.includes("01-") ? "auto" : "metadata"} onError={() => {
+      {!missing && <video data-src={src} muted playsInline autoPlay={loop} loop={loop} preload={src.includes("01-") ? "auto" : "metadata"} onError={() => {
         setMissing(true);
         console.warn(`[Rajmahal] Missing asset: ${src}`);
       }} poster={src.includes("01-") ? "/assets/video/poster.jpg" : undefined} />}
@@ -79,20 +79,13 @@ export default function Home() {
       const scrubVideo = (section: string, distance = 320) => {
         const el = document.querySelector<HTMLElement>(section);
         const v = el?.querySelector<HTMLVideoElement>("video");
-        if (!el || reduced || touch) return;
-        let target = 0, current = 0;
-        const seek = () => {
-          if (v?.duration && !v.autoplay) {
-            current += (target - current) * .1;
-            if (Math.abs(v.currentTime - current) > .015) v.currentTime = current;
-          }
-          requestAnimationFrame(seek);
-        };
-        seek();
+        if (!el || !v || reduced || touch) return;
+        v.pause();
+        v.autoplay = false;
         ScrollTrigger.create({
           trigger: el, start: "top top", end: `+=${distance}%`, pin: true, scrub: 1,
           onUpdate: (s: any) => {
-            if (v?.duration && !v.autoplay) target = v.duration * s.progress;
+            if (v.duration && Math.abs(v.currentTime - v.duration * s.progress) > .04) v.currentTime = v.duration * s.progress;
             gsap.set(el.querySelector(".chapter-progress i"), { scaleY: s.progress });
           }
         });
@@ -121,12 +114,12 @@ export default function Home() {
         gsap.fromTo(el, { textContent: 0 }, { textContent: n, duration: 1.8, snap: { textContent: 1 }, ease: "power2.out",
           scrollTrigger: { trigger: el, start: "top 85%", once: true }});
       });
-      gsap.to(".suite-track", { xPercent: -66.66, ease: "none", scrollTrigger: { trigger: "#suite", start: "top top", end: "+=260%", pin: true, scrub: 1 } });
+      if (!touch) gsap.to(".suite-track", { xPercent: -66.66, ease: "none", scrollTrigger: { trigger: "#suite", start: "top top", end: "+=260%", pin: true, scrub: 1 } });
       gsap.fromTo(".pool-window", { clipPath: "polygon(42% 12%,50% 0,58% 12%,68% 8%,78% 20%,78% 88%,22% 88%,22% 20%,32% 8%)" },
         { clipPath: "polygon(0 0,100% 0,100% 100%,0 100%)", ease: "expo.inOut", scrollTrigger: { trigger: "#pool", start: "top 75%", end: "top top", scrub: 1 }});
       gsap.to(".float-1", { y: -100, scrollTrigger: { trigger: "#pool", scrub: 1 }});
       gsap.to(".float-2", { y: -180, scrollTrigger: { trigger: "#pool", scrub: 1 }});
-      gsap.to(".portfolio-rail", { xPercent: -38, ease: "none", scrollTrigger: { trigger: "#portfolio", start: "top bottom", end: "bottom top", scrub: 1 }});
+      if (!touch) gsap.to(".portfolio-rail", { xPercent: -38, ease: "none", scrollTrigger: { trigger: "#portfolio", start: "top bottom", end: "bottom top", scrub: 1 }});
 
       let last = 0;
       addEventListener("scroll", () => {
