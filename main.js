@@ -40,8 +40,8 @@
   };
 
   const loadVideos = () => {
-    const scrubSections = $$(".scrub-chapter");
-    attachVideo($("video[data-src]", scrubSections[0]));
+    const videoSections = $$(".chapter").filter((section) => $("video[data-src]", section));
+    attachVideo($("video[data-src]", videoSections[0]));
 
     const observer = new IntersectionObserver((entries, preloadObserver) => {
       entries.forEach((entry) => {
@@ -51,7 +51,7 @@
       });
     }, { rootMargin: "120% 0px", threshold: 0 });
 
-    scrubSections.slice(1).forEach((section) => observer.observe(section));
+    videoSections.slice(1).forEach((section) => observer.observe(section));
   };
 
   const showStaticExperience = () => {
@@ -158,7 +158,6 @@
 
     scrubVideo("#hero", 380);
     scrubVideo("#arrival", 320);
-    scrubVideo("#night", 360);
 
     if (allowScrollScrub) {
       gsap.to(".suite-track", {
