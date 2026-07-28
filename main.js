@@ -1,7 +1,7 @@
 (() => {
   const $ = (selector, scope = document) => scope.querySelector(selector);
   const $$ = (selector, scope = document) => [...scope.querySelectorAll(selector)];
-  const reducedMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const reducedMotion = document.documentElement.dataset.motion === "reduce";
   const touchDevice = matchMedia("(pointer: coarse)").matches;
   const compactViewport = matchMedia("(max-width: 620px)").matches;
   const allowScrollScrub = !reducedMotion && !compactViewport;
