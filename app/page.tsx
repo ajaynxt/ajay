@@ -212,7 +212,7 @@ export default function Home() {
         <div className="portfolio-head">
           <p className="eyebrow">AJAY NXT · PERSONAL CONCEPT SHOWCASE</p>
           <h2>Ideas in motion.<br/><em>Built to be remembered.</em></h2>
-          <p>A self-initiated luxury world by Ajay Saini—where code moves like cinema, motion carries emotion and every frame is built to stay in memory.</p>
+          <p><strong>Created by Ajay Saini.</strong> Where code moves like cinema, motion carries emotion and every frame is built to stay in memory.</p>
         </div>
         <div className="portfolio-viewport">
           <div className="portfolio-rail">
@@ -238,8 +238,8 @@ export default function Home() {
         <div className="creator-copy">
           <p className="eyebrow">CREATOR OF THIS EXPERIENCE</p>
           <h2>Ajay Saini</h2>
-          <p className="creator-manifesto">I don’t follow the scroll. I direct it—turning ambitious ideas into digital worlds people feel before they understand.</p>
-          <p>I’m Ajay Saini—the creator behind AJAY NXT. Rooted in Narsara, creating from Shimla and building for the world, I blend design, development, cinematic editing and storytelling to turn ordinary brands into experiences people can’t scroll past.</p>
+          <p className="creator-manifesto">I don’t follow the scroll. <em>I direct it.</em> Turning ambitious ideas into digital worlds people feel before they understand.</p>
+          <p>I’m Ajay Saini—the creator behind AJAY NXT. Rooted in Narsara and creating from Shimla, I blend design, development, cinematic editing and storytelling to build experiences people can’t scroll past.</p>
           <div className="creator-tags"><span>Web Design</span><span>Development</span><span>App UI</span><span>Video Editing</span><span>AI Creative</span></div>
         </div>
         <div className="creator-contact">
