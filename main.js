@@ -3,6 +3,14 @@
   const $$ = (selector, scope = document) => [...scope.querySelectorAll(selector)];
   const reducedMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
   const touchDevice = matchMedia("(pointer: coarse)").matches || innerWidth <= 768;
+  let refreshTimer = 0;
+
+  const queueScrollRefresh = (delay = 120) => {
+    clearTimeout(refreshTimer);
+    refreshTimer = setTimeout(() => {
+      window.ScrollTrigger?.refresh(true);
+    }, delay);
+  };
 
   const splitWords = () => {
     $$("[data-split]").forEach((element) => {
@@ -23,6 +31,7 @@
       if (media) media.dataset.missing = "true";
       console.warn(`[Rajmahal] Missing asset: ${video.dataset.src}`);
     }, { once: true });
+    video.addEventListener("loadedmetadata", () => queueScrollRefresh(80), { once: true });
     video.src = video.dataset.src;
     video.preload = "auto";
     video.load();
@@ -67,6 +76,10 @@
     }
 
     gsap.registerPlugin(ScrollTrigger);
+    ScrollTrigger.config({
+      ignoreMobileResize: true,
+      limitCallbacks: true,
+    });
 
     const lenis = !reducedMotion && Lenis
       ? new Lenis({ duration: 1.05, smoothWheel: true })
@@ -115,6 +128,17 @@
       const section = $(selector);
       const video = $("video", section);
       if (!section || !video || touchDevice) return;
+      let targetTime = 0;
+
+      video.pause();
+      const weightedSeek = () => {
+        if (!video.duration || video.readyState < 1) return;
+        const difference = targetTime - video.currentTime;
+        if (Math.abs(difference) > 0.012) {
+          video.currentTime += difference * 0.12;
+        }
+      };
+      gsap.ticker.add(weightedSeek);
 
       ScrollTrigger.create({
         trigger: section,
@@ -122,11 +146,10 @@
         end: `+=${distance}%`,
         pin: true,
         scrub: 1,
+        anticipatePin: 1,
+        invalidateOnRefresh: true,
         onUpdate: (state) => {
-          const targetTime = video.duration * state.progress;
-          if (video.duration && Math.abs(video.currentTime - targetTime) > 0.04) {
-            video.currentTime = targetTime;
-          }
+          if (video.duration) targetTime = video.duration * state.progress;
           gsap.set($(".chapter-progress i", section), { scaleY: state.progress });
         },
       });
@@ -185,6 +208,26 @@
         },
       );
     });
+
+    const refreshAfterLayoutSettles = () => {
+      requestAnimationFrame(() => requestAnimationFrame(() => queueScrollRefresh(40)));
+    };
+    document.fonts?.ready.then(refreshAfterLayoutSettles);
+    $$("img").forEach((image) => {
+      if (!image.complete) image.addEventListener("load", refreshAfterLayoutSettles, { once: true });
+    });
+    addEventListener("load", refreshAfterLayoutSettles, { once: true });
+    addEventListener("pageshow", (event) => {
+      if (event.persisted) refreshAfterLayoutSettles();
+    });
+    addEventListener("orientationchange", () => queueScrollRefresh(320), { passive: true });
+
+    let viewportWidth = innerWidth;
+    addEventListener("resize", () => {
+      if (Math.abs(innerWidth - viewportWidth) < 4) return;
+      viewportWidth = innerWidth;
+      queueScrollRefresh(180);
+    }, { passive: true });
   };
 
   const initPlayback = () => {
