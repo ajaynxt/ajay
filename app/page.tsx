@@ -212,7 +212,7 @@ export default function Home() {
         <div className="portfolio-head">
           <p className="eyebrow">AJAY NXT · PERSONAL CONCEPT SHOWCASE</p>
           <h2>Ideas in motion.<br/><em>Built to be remembered.</em></h2>
-          <p>A self-initiated luxury hospitality demo by Ajay Saini—created to showcase cinematic web direction, development, motion and visual storytelling.</p>
+          <p>A self-initiated luxury world by Ajay Saini—where code moves like cinema, motion carries emotion and every frame is built to stay in memory.</p>
         </div>
         <div className="portfolio-viewport">
           <div className="portfolio-rail">
@@ -238,8 +238,8 @@ export default function Home() {
         <div className="creator-copy">
           <p className="eyebrow">CREATOR OF THIS EXPERIENCE</p>
           <h2>Ajay Saini</h2>
-          <p className="creator-manifesto">I don’t decorate screens. I turn ambitious ideas into digital experiences that are impossible to ignore.</p>
-          <p>I’m Ajay Saini—the creator behind AJAY NXT. From premium websites and app experiences to cinematic edits and AI-powered visuals, I combine design, development and storytelling to make good businesses look unforgettable.</p>
+          <p className="creator-manifesto">I don’t follow the scroll. I direct it—turning ambitious ideas into digital worlds people feel before they understand.</p>
+          <p>I’m Ajay Saini—the creator behind AJAY NXT. Rooted in Narsara, creating from Shimla and building for the world, I blend design, development, cinematic editing and storytelling to turn ordinary brands into experiences people can’t scroll past.</p>
           <div className="creator-tags"><span>Web Design</span><span>Development</span><span>App UI</span><span>Video Editing</span><span>AI Creative</span></div>
         </div>
         <div className="creator-contact">
@@ -251,7 +251,7 @@ export default function Home() {
           <a href="mailto:ajayx3neha@gmail.com">ajayx3neha@gmail.com ↗</a>
         </div>
       </section>
-      <footer><div className="footer-top"><div><p className="eyebrow dark">THE RAJMAHAL PALACE</p><h2>Where imagination becomes experience.</h2></div><div className="footer-links"><a href="#durbar">Palace</a><a href="#suite">Suites</a><a href="#pool">Experiences</a><a href="https://ajaynxt.com" target="_blank" rel="noreferrer">AJAY NXT</a></div></div><div className="jali-border"/><div className="footer-bottom"><span>A fictional luxury hospitality concept</span><span>Designed & built by Ajay Saini · AJAY NXT</span></div></footer>
+      <footer><div className="footer-top"><div><p className="eyebrow dark">THE RAJMAHAL PALACE</p><h2>The future isn’t found. It’s designed.</h2></div><div className="footer-links"><a href="#durbar">Palace</a><a href="#suite">Suites</a><a href="#pool">Experiences</a><a href="https://ajaynxt.com" target="_blank" rel="noreferrer">AJAY NXT</a></div></div><div className="jali-border"/><div className="footer-bottom"><span>A fictional luxury hospitality concept</span><span>Designed & built by Ajay Saini · AJAY NXT</span></div></footer>
     </div>
   );
 }
