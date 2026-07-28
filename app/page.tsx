@@ -156,7 +156,7 @@ export default function Home() {
       <Script src="https://cdn.jsdelivr.net/npm/lenis@1.3.11/dist/lenis.min.js" strategy="afterInteractive" />
       <div className="preloader"><div className="preloader-name">{"RAJMAHAL".split("").map((l,i)=><span key={i} className="preloader-letter">{l}</span>)}</div><i className="preloader-line"/><span className="preloader-count">000</span></div>
       <div className="grain"/><div className="cursor"><span>VIEW</span></div>
-      <nav className="nav"><a href="#hero" className="brand" aria-label="AJAY NXT home">AN</a><div><a href="#durbar">The Palace</a><a href="#suite">Suites</a><a href="#pool">Experiences</a><a href="#reserve">AJAY NXT</a></div></nav>
+      <nav className="nav"><a href="#hero" className="brand" aria-label="AJAY NXT home"><img src="/assets/images/ajay-nxt-logo-transparent.webp" alt=""/></a><div><a href="#durbar">The Palace</a><a href="#suite">Suites</a><a href="#pool">Experiences</a><a href="#reserve">AJAY NXT</a></div></nav>
       <div className="edge-number" aria-hidden="true">01 <i/> 06</div>
 
       <main>
@@ -226,7 +226,7 @@ export default function Home() {
               <span>03 · FILM + DIGITAL</span><div className="film-frame">▶</div><h3>Wedding<br/>Stories</h3><p>Cinematic pacing, colour, music-led storytelling and digital presentation.</p><b>Selected collaborations ↗</b>
             </article>
             <a className="work-card work-card-ivory" href="https://ajaynxt.com" target="_blank" rel="noreferrer">
-              <span>04 · COMPLETE PORTFOLIO</span><div className="an-mark">AN</div><h3>Create<br/>What’s Next.</h3><p>Web design, development, app UI, video editing and AI creative systems.</p><b>Visit ajaynxt.com ↗</b>
+              <span>04 · COMPLETE PORTFOLIO</span><div className="an-mark"><img src="/assets/images/ajay-nxt-logo-transparent.webp" alt="AJAY NXT logo" loading="lazy"/></div><h3>Create<br/>What’s Next.</h3><p>Web design, development, app UI, video editing and AI creative systems.</p><b>Visit ajaynxt.com ↗</b>
             </a>
           </div>
         </div>
