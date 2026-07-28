@@ -2,7 +2,9 @@
   const $ = (selector, scope = document) => scope.querySelector(selector);
   const $$ = (selector, scope = document) => [...scope.querySelectorAll(selector)];
   const reducedMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const touchDevice = matchMedia("(pointer: coarse)").matches || innerWidth <= 768;
+  const touchDevice = matchMedia("(pointer: coarse)").matches;
+  const compactViewport = matchMedia("(max-width: 620px)").matches;
+  const allowScrollScrub = !reducedMotion && !compactViewport;
   let refreshTimer = 0;
 
   const queueScrollRefresh = (delay = 120) => {
@@ -38,7 +40,6 @@
   };
 
   const loadVideos = () => {
-    if (touchDevice) return;
     const scrubSections = $$(".scrub-chapter");
     attachVideo($("video[data-src]", scrubSections[0]));
 
@@ -127,7 +128,7 @@
     const scrubVideo = (selector, distance) => {
       const section = $(selector);
       const video = $("video", section);
-      if (!section || !video || touchDevice) return;
+      if (!section || !video || !allowScrollScrub) return;
       let targetTime = 0;
 
       video.pause();
@@ -159,7 +160,7 @@
     scrubVideo("#arrival", 320);
     scrubVideo("#night", 360);
 
-    if (!touchDevice) {
+    if (allowScrollScrub) {
       gsap.to(".suite-track", {
         xPercent: -66.66,
         ease: "none",
@@ -241,7 +242,7 @@
       });
     }, { threshold: [0.1, 0.5, 0.9] });
 
-    const playbackSections = touchDevice && !reducedMotion
+    const playbackSections = !allowScrollScrub
       ? $$(".autoplay, .scrub-chapter")
       : $$(".autoplay");
 
